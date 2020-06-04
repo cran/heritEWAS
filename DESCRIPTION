@@ -1,6 +1,6 @@
 Package: heritEWAS
 Title: Identify Heritable Methylation Marks
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
   c(person(given = "James",
            family = "Dowty",
@@ -22,9 +22,9 @@ RoxygenNote: 7.1.0
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2020-04-25 07:02:59 UTC; Kevin
+Packaged: 2020-06-04 00:20:38 UTC; kevin
 Author: James Dowty [aut],
   Kevin Wong [aut, cre]
 Maintainer: Kevin Wong <wongck.kevin@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-04-29 14:40:02 UTC
+Date/Publication: 2020-06-04 04:50:07 UTC

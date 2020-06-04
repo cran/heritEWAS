@@ -19,12 +19,12 @@ unique(ped$family)
 M_values[1:5, 1:5]
 
 ## -----------------------------------------------------------------------------
-typed.genos <- calc_geno_probs(ped)
+typed_genos <- genotype_combinations(ped)
 
 ## -----------------------------------------------------------------------------
-str(typed.genos)
+str(typed_genos)
 
 ## -----------------------------------------------------------------------------
-deltal <- compute_deltal(typed.genos, M_values, ncores = 2)
-head(deltal)
+MLEs <- ML_estimates(typed_genos, M_values, ncores = 2)
+head(MLEs)
 

@@ -6,7 +6,7 @@
 \title{M-values for 1000 DNA methylation sites}
 \format{
 A data frame with 1000 rows (corresponding to DNA methyaltion sites)
-and 128 rows (corresponding to persons in ped with typed = 1).
+and 128 columns (corresponding to persons in ped with typed = 1).
 }
 \source{
 Simulated

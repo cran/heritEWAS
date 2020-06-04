@@ -20,7 +20,7 @@
 #' studies.
 #'
 #' The methods implemented in this package are described briefly in
-#' \code{\link{compute_deltal}} and fully in (Joo et al., 2018).
+#' \code{\link{ML_estimates}} and fully in (Joo et al., 2018).
 #'
 
 #' @keywords internal

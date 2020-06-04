@@ -1,4 +1,4 @@
-calc_geno_probs_f <- function(fam, ncores = 1, cl = NULL, verbose) {
+genotype_combinations_f <- function(fam, ncores = 1, cl = NULL, verbose) {
 
   # Make a copy of the original ID
   fam$ID.orig <- fam$indiv

@@ -37,7 +37,7 @@ library(heritEWAS)
 ```
 
 To use this package, you will need two sets of data (described in more detail 
-in the help page for the function `calc_geno_probs`):
+in the help page for the function `genotype_combinations`):
 
 1. A data frame containing the pedigree data, i.e. the relationship structure 
 of the families. Each row of the data frame corresponds to a person, and the 
@@ -79,9 +79,10 @@ The most time-consuming part of the calculation of $\Delta l$ is
 the same for all methylation sites, so the `heritEWAS` package calculates 
 this part once, stores the output, then re-uses this calculation 
 for each methylation site.  
-This part of the calculation is performed by the function `calc_geno_probs()`:
+This part of the calculation is performed by the function 
+`genotype_combinations()`:
 ```{r}
-typed.genos <- calc_geno_probs(ped)
+typed_genos <- genotype_combinations(ped)
 ```
 
 The results are stored in a named list of data frames, with one data frame 
@@ -93,21 +94,21 @@ a hypothetical genetic variant that controls methylation at a given
 methylation site under one of the two statistical models used to define 
 $\Delta l$. 
 Impossible genotype combinations (those with a probability of `0`) are excluded 
-from the output of `calc_geno_probs()`.  
+from the output of `genotype_combinations()`.  
 ```{r}
-str(typed.genos)
+str(typed_genos)
 ```
 
 Given the genotype probabilities, we can use the package's main function 
-`compute_deltal()` to compute $\Delta l$ for each site. The output is a 
+`ML_estimates()` to compute $\Delta l$ for each site. The output is a 
 data frame with rows corresponding to methylation sites and columns giving 
 details about certain fitted models (see the help page of the function 
-`compute_deltal` for more details).  In particular, the column `delta.l` 
+`ML_estimates` for more details).  In particular, the column `delta.l` 
 gives the statistic $\Delta l$, which measures how heritable each methylation 
 site is. 
 ```{r}
-deltal <- compute_deltal(typed.genos, M_values, ncores = 2)
-head(deltal)
+MLEs <- ML_estimates(typed_genos, M_values, ncores = 2)
+head(MLEs)
 ```
 
 ## References

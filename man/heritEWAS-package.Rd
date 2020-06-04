@@ -27,7 +27,7 @@ and classical measures of heritability, such as those estimated by twin
 studies.
 
 The methods implemented in this package are described briefly in
-\code{\link{compute_deltal}} and fully in (Joo et al., 2018).
+\code{\link{ML_estimates}} and fully in (Joo et al., 2018).
 }
 \author{
 \strong{Maintainer}: Kevin Wong \email{wongck.kevin@gmail.com}

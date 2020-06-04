@@ -11,6 +11,19 @@ ancestors <- function(ID.list, fam) {
   y
 }
 
+ancestors2 <- function(ID.list, fam) {
+  x <- c()
+  y <- ID.list
+  while (length(x) < length(y)) {
+    x <- y
+    flag <- fam$indiv %in% x
+    y <- unique(c(x, fam$mother[flag], fam$father[flag]))
+    y <- setdiff(y, "")
+    y <- setdiff(y, 0)
+  }
+  y
+}
+
 # Return ID.list and all of their descendents in fam
 descendents <- function(ID.list, fam) {
   x <- c()

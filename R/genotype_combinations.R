@@ -2,7 +2,7 @@
 #'
 #' This function computes the joint probabilities of the possible genotypes of
 #' selected family members within each family, as an intermediate calculation
-#' for use in \code{\link{compute_deltal}}.
+#' for use in \code{\link{ML_estimates}}.
 #'
 #' @param dat A data frame with rows corresponding to people and columns
 #' corresponding to (at least) the following variables, which will be coerced to
@@ -56,8 +56,8 @@
 #' data(ped)
 #'
 #' # Calculate genotype probabilites
-#' typed.genos <- calc_geno_probs(ped)
-#' str(typed.genos)
+#' typed_genos <- genotype_combinations(ped)
+#' str(typed_genos)
 #'
 #' @references
 #' Joo JE, Dowty JG, Milne RL, Wong EM, Dugué PA, English D, Hopper JL,
@@ -65,7 +65,7 @@
 #' associated with susceptibility to breast cancer.  Nat Commun. 2018
 #' Feb 28;9(1):867. \url{https://doi.org/10.1038/s41467-018-03058-6}
 #'
-calc_geno_probs <- function(dat, ncores = 1, verbose = TRUE) {
+genotype_combinations <- function(dat, ncores = 1, verbose = TRUE) {
 
   check_dat(dat)
   dat$family <- as.character(dat$family)
@@ -100,7 +100,7 @@ calc_geno_probs <- function(dat, ncores = 1, verbose = TRUE) {
       stop("Maximum of 20 people per family with typed = 1 is allowed, consider splitting pedigrees")
     }
 
-    tg_list[[j]] <- calc_geno_probs_f(fam, ncores, cl, verbose)
+    tg_list[[j]] <- genotype_combinations_f(fam, ncores, cl, verbose)
     j <- j + 1
   }
 
